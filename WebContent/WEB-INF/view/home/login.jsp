@@ -16,7 +16,7 @@
 			<table id="login-outer-tab">
 				<tr>
 					<td colspan="5">
-						<form id="login-form" action="member.do">
+						<form id="login-form" >
 					
 							<table id="login-inner-tab">
 								<tr>
@@ -51,6 +51,26 @@
 /* window.onload =  function(){
 	location.assign('member.do?dest=join-form');
 } */
+var submit = document.getElementById("login-btn");
+submit.addEventListener('click',function(){
+	
+	var uid = document.getElementById("uid");
+	var upass = document.getElementById("upass");
+
+	if(uid.value==="" && upass.value===""){
+		alert('아이디를 입력하세요');
+		
+	}else{
+		alert('아이디가 입력되었습니다');
+		var form = document.getElementById("login-form");
+		form.action = "member.do";
+		form.method = "post";
+		form.submit();
+	}
+	
+});
+
+
 document.getElementById('join-link').addEventListener('click',function (){
 		alert('회원가입 클릭');
 		location.assign('member.do?dest=join-form');
